@@ -36,7 +36,7 @@ public class BeanCheckerTest {
 		Assert.assertTrue(beanChecker.mandatorySettersCalled());
 		Assert.assertEquals(0, beanChecker.getMissingSetters().size());
 
-		beanChecker.checkMandatorySettersCalled();
+		beanChecker.checkMandatorySettersCalled(); // this shouldn't throw an exception
 	}
 
 	@Test

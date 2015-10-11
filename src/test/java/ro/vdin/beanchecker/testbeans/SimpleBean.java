@@ -5,28 +5,12 @@ import java.util.Date;
 import ro.vdin.beanchecker.OptionalSetter;
 
 public class SimpleBean {
-	private Date when;
 	private String author;
 	private String body;
-
-	public Date getWhen() {
-		return when;
-	}
-
-	public void setWhen(Date when) {
-		this.when = when;
-	}
-
-	public String getAuthor() {
-		return author;
-	}
+	private Date when;
 
 	public void setAuthor(String author) {
 		this.author = author;
-	}
-
-	public String getBody() {
-		return body;
 	}
 
 	@OptionalSetter
@@ -34,4 +18,19 @@ public class SimpleBean {
 		this.body = body;
 	}
 
+	public void setWhen(Date when) {
+		this.when = when;
+	}
+
+	public String getBody() {
+		return body;
+	}
+
+	public Date getWhen() {
+		return when;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
 }
