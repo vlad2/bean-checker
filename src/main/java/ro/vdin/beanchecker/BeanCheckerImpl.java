@@ -1,4 +1,4 @@
-package ro.vdin;
+package ro.vdin.beanchecker;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -20,6 +20,11 @@ public class BeanCheckerImpl<T> implements BeanChecker<T> {
 	private T beanProxy;
 	private static final Logger log = LoggerFactory.getLogger(BeanCheckerImpl.class);
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param clazz - bean class
+	 */
 	@SuppressWarnings("unchecked")
 	public BeanCheckerImpl(Class<T> clazz) {
 		setters = computeSetters(clazz);
@@ -70,11 +75,6 @@ public class BeanCheckerImpl<T> implements BeanChecker<T> {
 		return beanProxy;
 	}
 
-	@Override
-	public boolean allSettersCalled() {
-		return setters.size() == calledSetters.size();
-	}
-
 	private boolean isSetter(Method method) {
 		return (method.getName().startsWith("set"));
 	}
@@ -105,16 +105,8 @@ public class BeanCheckerImpl<T> implements BeanChecker<T> {
 	}
 
 	@Override
-	public void checkAllSettersCalled() throws IllegalStateException {
-		if (!allSettersCalled()) {
-			throw new IllegalStateException("Not all setters have been called! Missing setters: "
-					+ getMissingSetters());
-		}
-	}
-
-	@Override
 	public Set<Method> getMissingSetters() {
-		HashSet<Method> missingSetters = new HashSet<>(setters);
+		HashSet<Method> missingSetters = new HashSet<>(mandatorySetters);
 		missingSetters.removeAll(calledSetters);
 		return missingSetters;
 	}

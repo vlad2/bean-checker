@@ -1,4 +1,4 @@
-package ro.vdin.testbeans;
+package ro.vdin.beanchecker.testbeans;
 
 public class ExtendedBean extends SimpleBean {
 	private int extendedProp1;

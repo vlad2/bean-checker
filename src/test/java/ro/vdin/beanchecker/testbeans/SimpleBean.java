@@ -1,8 +1,8 @@
-package ro.vdin.testbeans;
+package ro.vdin.beanchecker.testbeans;
 
 import java.util.Date;
 
-import ro.vdin.OptionalSetter;
+import ro.vdin.beanchecker.OptionalSetter;
 
 public class SimpleBean {
 	private Date when;

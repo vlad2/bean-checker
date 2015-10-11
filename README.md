@@ -1,6 +1,6 @@
 # bean-checker
 
-Bean checker is a library to check that all properties of a Java bean have been set (no matter if they were set to not-null or null values).
+Bean checker is a Java library which helps to check that all properties of a Java bean have been set (no matter if they were set to not-null or null values).
 
 For instance, imagine this bean:
 
