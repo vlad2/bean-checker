@@ -6,16 +6,16 @@ For instance, imagine this bean:
 
 ```java
 public class SimpleBean {
-	private Date when;
+	private Date date;
 	private String author;
 	private String body;
 
-	public Date getWhen() {
-		return when;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setWhen(Date when) {
-		this.when = when;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public String getAuthor() {
@@ -45,7 +45,7 @@ And the calling code:
 SimpleBean messageBean = new SimpleBean();
 
 messageBean.setAuthor("vlad");
-messageBean.setWhen(new Date());
+messageBean.setDate(new Date());
 ```
 
 You see above that the developer forgot to call the setBody() setter.
@@ -58,7 +58,7 @@ BeanChecker<SimpleBean> beanChecker = new BeanCheckerImpl<>(SimpleBean.class);
 SimpleBean messageBean = beanChecker.getBeanProxy();
 
 messageBean.setAuthor("vlad");
-messageBean.setWhen(new Date());
+messageBean.setDate(new Date());
 
-beanChecker.allSettersCalled(); // this will throw an exception if not all setters were called
+beanChecker.mandatorySettersCalled(); // this will throw an exception if not all setters were called
 ```
