@@ -1,0 +1,5 @@
+# Source: http://blog.dahanne.net/2010/09/20/hosting-a-new-maven-project-on-github-g3-java-client-a-gallery3-remote-client-library/
+
+#mvn release:prepare
+
+mvn -DaltDeploymentRepository=snapshot-repo::default::file:/home/vlad/git/mvn-repo/snapshots/ clean deploy
