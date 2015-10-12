@@ -54,7 +54,7 @@ You can avoid situations like these by using this library, like this:
 
 
 ```java
-BeanChecker<SimpleBean> beanChecker = new BeanCheckerImpl<>(SimpleBean.class);
+BeanChecker<SimpleBean> beanChecker = BeanCheckerFactory.createBeanChecker(SimpleBean.class);
 SimpleBean messageBean = beanChecker.getBeanProxy();
 
 messageBean.setAuthor("vlad");
