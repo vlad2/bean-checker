@@ -1,5 +1,7 @@
 # bean-checker
 
+## What is it?
+
 Bean checker is a Java library which helps to check that all properties of a Java bean have been set (no matter if they were set to not-null or null values).
 
 For instance, imagine this bean:
@@ -61,4 +63,25 @@ messageBean.setAuthor("vlad");
 messageBean.setDate(new Date());
 
 beanChecker.mandatorySettersCalled(); // this will throw an exception if not all setters were called
+```
+
+## Maven 
+
+Maven repository:
+```xml
+	<repositories>
+		<repository>
+			<id>bean-checker</id>
+			<url>https://github.com/vlad2/mvn-repo/raw/master/releases</url>
+		</repository>
+	</repositories>
+```
+
+Maven dependency:
+```xml
+		<dependency>
+			<groupId>ro.vdin</groupId>
+			<artifactId>bean-checker</artifactId>
+			<version>1.2</version>
+		</dependency>
 ```
