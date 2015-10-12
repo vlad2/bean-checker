@@ -4,8 +4,24 @@
 
 	<groupId>ro.vdin</groupId>
 	<artifactId>bean-checker</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>jar</packaging>
+
+	<!-- Elements required by Maven central -->
+	<description>
+		Bean checker is a Java library which helps to check that all properties of a Java bean have been set (no matter if they were set to not-null or null values).
+	</description>
+	<name>bean-checker</name>
+	<url>https://github.com/vlad2/bean-checker</url>
+
+	<licenses>
+		<license>
+			<name>GNU LESSER GENERAL PUBLIC LICENSE, Version 3.0</name>
+			<url>http://www.gnu.org/licenses/lgpl-3.0.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<!-- end of elements required by Maven central -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
