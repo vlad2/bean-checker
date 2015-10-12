@@ -2,4 +2,4 @@
 
 #mvn release:prepare
 
-mvn -DaltDeploymentRepository=releases-repo::default::file:/home/vlad/git/mvn-repo/releases/ clean deploy
+mvn -DaltDeploymentRepository=releases-repo::default::file:/home/vlad/git/mvn-repo/releases/ clean source:jar javadoc:jar deploy

@@ -2,4 +2,4 @@
 
 #mvn release:prepare
 
-mvn -DaltDeploymentRepository=snapshot-repo::default::file:/home/vlad/git/mvn-repo/snapshots/ clean deploy
+mvn -DaltDeploymentRepository=snapshot-repo::default::file:/home/vlad/git/mvn-repo/snapshots/ clean source:jar javadoc:jar deploy
