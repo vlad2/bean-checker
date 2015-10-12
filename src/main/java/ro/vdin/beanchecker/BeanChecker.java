@@ -14,7 +14,7 @@ import java.util.Set;
  *      // call setters, getters, other methods on the bean
  *		messageBean.setAuthor("vlad");
  *		messageBean.setBody("text body");
- *		messageBean.setWhen(new Date());
+ *		messageBean.setDate(new Date());
  *
  *		// check that mandatory setters have been called
  *		beanChecker.mandatorySettersCalled());
@@ -47,7 +47,8 @@ public interface BeanChecker<T> {
 	/**
 	 * @return all setters of the bean class
 	 */
-	   Set<Method> getSetters();
+
+	Set<Method> getSetters();
 
 	/**
 	 * @return called setters for that bean

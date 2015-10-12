@@ -29,7 +29,7 @@ public class BeanCheckerTest {
 			// expected
 		}
 		Assert.assertEquals(1, beanChecker.getMissingSetters().size());
-		messageBean.setWhen(new Date());
+		messageBean.setDate(new Date());
 
 		Assert.assertEquals("vlad", messageBean.getAuthor());
 
@@ -52,7 +52,7 @@ public class BeanCheckerTest {
 
 		bean.setAuthor("author");
 		bean.setBody("body");
-		bean.setWhen(new Date());
+		bean.setDate(new Date());
 
 		Assert.assertTrue(beanChecker.mandatorySettersCalled());
 	}
