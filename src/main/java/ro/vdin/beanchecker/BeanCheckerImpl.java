@@ -2,8 +2,9 @@ package ro.vdin.beanchecker;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.Comparator;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,13 @@ public class BeanCheckerImpl<T> implements BeanChecker<T> {
 	private Enhancer enhancer;
 	private T beanProxy;
 	private static final Logger log = LoggerFactory.getLogger(BeanCheckerImpl.class);
+	private static final Comparator<Method> METHOD_COMPARATOR_BY_NAME = new Comparator<Method>() {
+		@Override
+		public int compare(Method m1, Method m2) {
+			return m1.getName().compareTo(m2.getName());
+		}
+
+	};
 
 	/**
 	 * Constructor.
@@ -29,7 +37,7 @@ public class BeanCheckerImpl<T> implements BeanChecker<T> {
 	public BeanCheckerImpl(Class<T> clazz) {
 		setters = computeSetters(clazz);
 		mandatorySetters = computeMandatorySetters(setters);
-		calledSetters = new HashSet<>();
+		calledSetters = new TreeSet<>(METHOD_COMPARATOR_BY_NAME);
 
 		enhancer = new Enhancer();
 		enhancer.setSuperclass(clazz);
@@ -55,7 +63,7 @@ public class BeanCheckerImpl<T> implements BeanChecker<T> {
 	}
 
 	private Set<Method> computeMandatorySetters(Set<Method> allSetters) {
-		Set<Method> mandatorySetters = new HashSet<>();
+		Set<Method> mandatorySetters = new TreeSet<>(METHOD_COMPARATOR_BY_NAME);
 
 		for (Method method : allSetters) {
 			if (!hasOptionalSetterAnnotation(method)) {
@@ -80,7 +88,7 @@ public class BeanCheckerImpl<T> implements BeanChecker<T> {
 	}
 
 	private Set<Method> computeSetters(Class<?> clazz) {
-		Set<Method> setters = new HashSet<>();
+		Set<Method> setters = new TreeSet<>(METHOD_COMPARATOR_BY_NAME);
 		for (Method method : clazz.getDeclaredMethods()) {
 			if (isSetter(method)) {
 				setters.add(method);
@@ -106,7 +114,8 @@ public class BeanCheckerImpl<T> implements BeanChecker<T> {
 
 	@Override
 	public Set<Method> getMissingSetters() {
-		HashSet<Method> missingSetters = new HashSet<>(mandatorySetters);
+		Set<Method> missingSetters = new TreeSet<>(METHOD_COMPARATOR_BY_NAME);
+		missingSetters.addAll(mandatorySetters);
 		missingSetters.removeAll(calledSetters);
 		return missingSetters;
 	}
