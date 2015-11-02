@@ -67,21 +67,11 @@ beanChecker.mandatorySettersCalled(); // this will throw an exception if not all
 
 ## Maven 
 
-Maven repository:
-```xml
-<repositories>
-	<repository>
-		<id>bean-checker</id>
-		<url>https://github.com/vlad2/mvn-repo/raw/master/releases</url>
-	</repository>
-</repositories>
-```
-
-Maven dependency:
+Maven dependency (no repository section needed, artifact is on maven central):
 ```xml
 <dependency>
-	<groupId>ro.vdin</groupId>
+	<groupId>com.github.vlad2</groupId>
 	<artifactId>bean-checker</artifactId>
-	<version>1.2</version>
+	<version>1.0.5</version>
 </dependency>
 ```
