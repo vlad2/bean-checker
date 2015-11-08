@@ -108,6 +108,16 @@
 				</executions>
 			</plugin>
 
+<!--
+	This plugin makes the work of:
+	- running mvn deploy
+	- logging into sonatype nexus repository
+	- going to 'staging repositories'
+	- choosing our staging repository
+	- closing it 
+	- releasing it (with drop option set as well)
+	
+
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
@@ -119,6 +129,7 @@
 					<autoReleaseAfterClose>true</autoReleaseAfterClose>
 				</configuration>
 			</plugin>
+-->
 
 		</plugins>
 	</build>
