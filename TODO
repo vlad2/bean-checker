@@ -1,0 +1,29 @@
+- publish jars into maven central
+- in readme: add limitations
+- add other features?
+	- generate a bean builder
+	
+	      BeanBuilder bb=BeanChecker.createBeanBuilder(ExampleBean.class);
+	      
+	      ExampleBean bean=bb.setA().setB().build();
+	      
+	      
+	      How exactly would that work, a? The setA() method of the builder...
+	      
+	      Maybe we can just generate the code and the user would use it, 
+	      similar to how xjc generates classes out of XML schemas.
+	      
+	      Question: maybe some other projects already have this?
+	      
+	- Eclipse plugin that generates calling all setters
+		ExampleBean bean=new ExampleBean();
+		
+		// click Eclipse -> generate setter calls
+		bean.setA(null); // TODO
+		bean.setB(null); // TODO
+		bean.setBoolean(false); // TODO
+		...
+		bean.setZ(null); // TODO
+
+- generate javadoc, see the output
+
